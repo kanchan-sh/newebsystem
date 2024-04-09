@@ -19,15 +19,19 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+
+# SECRET_KEY = os.getenv('SECRET_KEY')
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
+# if not SECRET_KEY:
+#     print(SECRET_KEY,"SECRET_KEY")
+#     raise ValueError("No secret key found. Set the SECRET_KEY environment variable.")
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SECRET_KEY
+SECRET_KEY = "django-insecure-(vpsa*-ls4$n$$kxa9!96t8-!lc7v85xepv^z2vh187dpdfy)m"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -151,7 +155,7 @@ SIMPLE_JWT = {
 }
 
 # celery configuration
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
